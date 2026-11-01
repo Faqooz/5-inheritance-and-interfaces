@@ -1,5 +1,7 @@
 package inheritance.webshop;
 
+import interfaces.markdown.MarkdownExport;
+
 /**
  * This class represents products in a webshop application. The class will be
  * used as a base class for various product types in the next parts of the
@@ -20,7 +22,7 @@ package inheritance.webshop;
  * Note that this class itself does not utilize inheritance, but it will
  * extended by other classes in the exercise.
  */
-public class Product {
+public class Product implements MarkdownExport {
 
     private String title;
     private String description;
@@ -45,8 +47,20 @@ public class Product {
     public double getPrice() {
         return price;
     }
+
     public String toString() {
         return title + ", " + description + ", " + price;
+    }
+
+    @Override
+    public String exportMarkdown() {
+        StringBuilder markdown = new StringBuilder();
+
+        markdown.append("# ").append(this.title).append("\n\n");
+        markdown.append(this.description).append("\n\n");
+        markdown.append("Price: ").append(String.format("%.2f", this.price));
+
+        return markdown.toString();
     }
 }
 //sama kuin sql tietokanta kurssin periytyminen. Kaikki luokat jakavat tietttyä tietoa, kuten kuvauksen, ja tuotteiden lukumäärän etc. Parempi pistää kaikki yhteiset asiat yhteiseen luokkaan.
