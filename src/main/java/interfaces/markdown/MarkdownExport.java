@@ -3,7 +3,7 @@ package interfaces.markdown;
 /**
  * This interface is used to add markdown export functionality to a class.
  *
- * Your taks is to declare a method called exportMarkdown() in this interface.
+ * Your task is to declare a method called exportMarkdown() in this interface.
  * The method must return a String. Note that you are not supposed to implement
  * the method here, just declare it. Any class that implements this interface
  * will implement the method with its own implementation.
@@ -27,6 +27,8 @@ package interfaces.markdown;
  * https://www.markdownguide.org/
  */
 public interface MarkdownExport {
+    public String exportMarkdown();
+
 
     // TODO: define the method here
 }
