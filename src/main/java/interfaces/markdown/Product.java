@@ -1,4 +1,5 @@
 package inheritance.webshop;
+
 import interfaces.markdown.MarkdownExport;
 
 /**
@@ -21,20 +22,18 @@ import interfaces.markdown.MarkdownExport;
  * Note that this class itself does not utilize inheritance, but it will
  * extended by other classes in the exercise.
  */
-public class Product implements MarkdownExport{
+public class Product implements MarkdownExport {
 
     private String title;
     private String description;
     private double price;
 
-    // konstruktori
     public Product(String title, String description, double price) {
         this.title = title;
         this.description = description;
         this.price = price;
     }
 
-    // Getterit
     public String getTitle() {
         return title;
     }
@@ -46,16 +45,19 @@ public class Product implements MarkdownExport{
     public double getPrice() {
         return price;
     }
+
     public String toString() {
         return title + ", " + description + ", " + price;
     }
-    public String exportMarkdown(){
-        StringBuilder mk = new StringBuilder();
-        mk.append("# " + this.title + "\n\n");
-        mk.append("Description: " + this.description + "\n\n");
-        mk.append("Price: " + this.price + "\n");
 
-        return mk.toString();
+    @Override
+    public String exportMarkdown() {
+        StringBuilder markdown = new StringBuilder();
+
+        markdown.append("# ").append(this.title).append("\n\n");
+        markdown.append(this.description).append("\n\n");
+        markdown.append("Price: ").append(String.format("%.2f", this.price));
+
+        return markdown.toString();
     }
-
 }
