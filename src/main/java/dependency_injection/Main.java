@@ -27,11 +27,12 @@ public class Main {
      */
     public static void main(String... args) {
 
-        /*
+        /*PrinterWithTimestamp printer = new PrinterWithTimestamp();
          * A new application object is created with the System.out object as an
          * argument. Run this code and see the output.
          */
-        Application app = new Application(System.out);
+        PrinterWithTimestamp printer = new PrinterWithTimestamp();
+        Application app = new Application(printer);
         app.run();
 
         /*
